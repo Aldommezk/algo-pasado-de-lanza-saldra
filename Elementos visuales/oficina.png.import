@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr5lnmorpa460"
-path.s3tc="res://.godot/imported/escritorio.png-4d4740fb4693afe06167ed686cbeb9d3.s3tc.ctex"
+uid="uid://pd8a54un5j8r"
+path.s3tc="res://.godot/imported/oficina.png-bd73ade27ecdd7fc5609cb7d26524075.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Elementos visuales/escritorio.png"
-dest_files=["res://.godot/imported/escritorio.png-4d4740fb4693afe06167ed686cbeb9d3.s3tc.ctex"]
+source_file="res://Elementos visuales/oficina.png"
+dest_files=["res://.godot/imported/oficina.png-bd73ade27ecdd7fc5609cb7d26524075.s3tc.ctex"]
 
 [params]
 
