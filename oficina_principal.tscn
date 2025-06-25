@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://biv4sq2l7odp6" path="res://Elementos visuales/oficina.png" id="1_78rtn"]
 [ext_resource type="Shader" uid="uid://c5dq8jdd8wcsu" path="res://oficina_principal.gdshader" id="3_taptn"]
-[ext_resource type="Script" uid="uid://x2wvmxs3fl8k" path="res://scripts/PivoteCamara.gd.gd" id="4_4g1s6"]
+[ext_resource type="Script" uid="uid://x2wvmxs3fl8k" path="res://scripts/PivoteCamara.gd" id="4_4g1s6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4g1s6"]
 shader = ExtResource("3_taptn")
@@ -31,10 +31,10 @@ centered = false
 
 [node name="PivoteCamara" type="Node2D" parent="SubViewportContainer/SubViewport"]
 scale = Vector2(0.1, 0.1)
+script = ExtResource("4_4g1s6")
 
 [node name="CamaraOficina" type="Camera2D" parent="SubViewportContainer/SubViewport/PivoteCamara"]
 anchor_mode = 0
-script = ExtResource("4_4g1s6")
 
 [node name="TextureRect" type="TextureRect" parent="SubViewportContainer"]
 material = SubResource("ShaderMaterial_4g1s6")
