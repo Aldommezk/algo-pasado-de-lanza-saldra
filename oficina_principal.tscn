@@ -6,8 +6,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4g1s6"]
 shader = ExtResource("3_taptn")
-shader_parameter/distortion_strength = 1.0
-shader_parameter/distortion_radius_x = 1.078
+shader_parameter/distortion_strength = 0.225
+shader_parameter/distortion_radius_x = 0.517
 shader_parameter/center = Vector2(0.5, 0.5)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dvq3c"]
@@ -21,11 +21,11 @@ offset_bottom = 40.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(5977, 3597)
+size = Vector2i(2007, 1042)
 render_target_update_mode = 4
 
 [node name="OficinaSprite" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
-position = Vector2(0.0587259, 4.03677)
+scale = Vector2(0.53, 0.53)
 texture = ExtResource("1_78rtn")
 centered = false
 
@@ -33,6 +33,7 @@ centered = false
 scale = Vector2(0.1, 0.1)
 
 [node name="CamaraOficina" type="Camera2D" parent="SubViewportContainer/SubViewport/PivoteCamara"]
+anchor_mode = 0
 script = ExtResource("4_4g1s6")
 
 [node name="TextureRect" type="TextureRect" parent="SubViewportContainer"]
