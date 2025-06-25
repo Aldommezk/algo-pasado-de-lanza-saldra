@@ -1,18 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://q786bg3jf5mm"]
+[gd_scene load_steps=6 format=3 uid="uid://q786bg3jf5mm"]
 
 [ext_resource type="Texture2D" uid="uid://biv4sq2l7odp6" path="res://Elementos visuales/oficina.png" id="1_78rtn"]
+[ext_resource type="Shader" uid="uid://c5dq8jdd8wcsu" path="res://oficina_principal.gdshader" id="3_taptn"]
 [ext_resource type="Script" uid="uid://x2wvmxs3fl8k" path="res://scripts/PivoteCamara.gd.gd" id="4_4g1s6"]
 
-[node name="Oficina" type="Node3D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4g1s6"]
+shader = ExtResource("3_taptn")
+shader_parameter/distortion_strength = 1.0
+shader_parameter/distortion_radius_x = 1.078
+shader_parameter/center = Vector2(0.5, 0.5)
 
-[node name="OficinaSprite" type="Sprite3D" parent="."]
-transform = Transform3D(0.655055, 0, 0, 0, 0.631259, 0, 0, 0, 1.00188, 0.0587259, 4.03677, -2.83042)
+[sub_resource type="ViewportTexture" id="ViewportTexture_dvq3c"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[node name="Oficina" type="Node2D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(5977, 3597)
+render_target_update_mode = 4
+
+[node name="OficinaSprite" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+position = Vector2(0.0587259, 4.03677)
 texture = ExtResource("1_78rtn")
+centered = false
 
-[node name="PivoteCamara" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14202, 0.377069, 17.2541)
+[node name="PivoteCamara" type="Node2D" parent="SubViewportContainer/SubViewport"]
+scale = Vector2(0.1, 0.1)
+
+[node name="CamaraOficina" type="Camera2D" parent="SubViewportContainer/SubViewport/PivoteCamara"]
 script = ExtResource("4_4g1s6")
 
-[node name="CamaraOficina" type="Camera3D" parent="PivoteCamara"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.262578, 4.92912, 2.90675)
-fov = 70.0
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer"]
+material = SubResource("ShaderMaterial_4g1s6")
+layout_mode = 2
+texture = SubResource("ViewportTexture_dvq3c")

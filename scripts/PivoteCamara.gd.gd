@@ -1,23 +1,12 @@
-extends Node3D
+# Camera1D.gd
+extends Camera2D
 
-@export var mouse_sensitivity: float = 0.0005 # Puedes ajustar este valor aún más si es necesario
-@export var max_look_left: float = -45.0 # Límite horizontal hacia la izquierda
-@export var max_look_right: float = 45.0 # Límite horizontal hacia la derecha
+@export var smooth_speed: float = 5.0  # Velocidad de suavizado de la cámara
 
-var mouse_x_rotation: float = 0.0 # Acumulador de rotación horizontal (eje Y)
+func _ready():
+	make_current()
 
-
-func _input(event):
-	if event is InputEventMouseMotion:
-		
-		mouse_x_rotation += -event.relative.x * mouse_sensitivity 
-
-		# Limita la rotación horizontal
-		mouse_x_rotation = clamp(mouse_x_rotation, deg_to_rad(max_look_left), deg_to_rad(max_look_right))
-
-		# Aplica la rotación al pivote (horizontal)
-		self.rotation.y = mouse_x_rotation 
-		
-		# Asegura que no haya inclinación en Z para el pivote y la cámara
-		self.rotation.z = 0
-		$CamaraOficina.rotation.z = 0
+func _process(delta):
+	# Obtener la posición global del cursor
+	var mouse_position = get_viewport().get_mouse_position()
+	global_position = global_position.lerp(Vector2(mouse_position.x, 0), smooth_speed * delta)
