@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://q786bg3jf5mm"]
+[gd_scene load_steps=7 format=3 uid="uid://q786bg3jf5mm"]
 
+[ext_resource type="Script" uid="uid://d4npb1c4608qe" path="res://sub_viewport.gd" id="1_4g1s6"]
 [ext_resource type="Texture2D" uid="uid://biv4sq2l7odp6" path="res://Elementos visuales/oficina.png" id="1_78rtn"]
 [ext_resource type="Shader" uid="uid://c5dq8jdd8wcsu" path="res://oficina_principal.gdshader" id="3_taptn"]
 [ext_resource type="Script" uid="uid://x2wvmxs3fl8k" path="res://scripts/PivoteCamara.gd" id="4_4g1s6"]
@@ -16,16 +17,16 @@ viewport_path = NodePath("SubViewportContainer/SubViewport")
 [node name="Oficina" type="Node2D"]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 740.0
+offset_bottom = 575.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(2007, 1042)
+size = Vector2i(740, 575)
 render_target_update_mode = 4
+script = ExtResource("1_4g1s6")
 
 [node name="OficinaSprite" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
-scale = Vector2(0.53, 0.53)
 texture = ExtResource("1_78rtn")
 centered = false
 
